@@ -7,7 +7,7 @@ import org.intellij.plugins.markdown.injection.CodeFenceLanguageProvider
 import org.vlang.lang.VlangLanguage
 
 class VlangFenceLanguageProvider : CodeFenceLanguageProvider {
-    override fun getLanguageByInfoString(lang: String): Language? = if (lang == "v") { VlangLanguage } else { null }
+    override fun getLanguageByInfoString(lang: String): Language? = if (lang == "v") VlangLanguage else null
 
     override fun getCompletionVariantsForInfoString(p0: CompletionParameters): MutableList<LookupElement> = mutableListOf()
 }

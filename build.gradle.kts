@@ -11,6 +11,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.11.0"
     // Gradle Changelog Plugin
     id("org.jetbrains.changelog") version "1.3.1"
+    // Detekt Linter
+    id("io.gitlab.arturbosch.detekt").version("1.22.0")
 }
 
 group = properties("pluginGroup")
@@ -91,6 +93,12 @@ tasks {
         enabled = false
     }
 }
+
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+}
+
+detekt {
+    config = files("./detekt-config.yml")
+    buildUponDefaultConfig = true
 }

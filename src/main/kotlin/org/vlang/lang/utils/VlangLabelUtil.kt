@@ -10,11 +10,9 @@ object VlangLabelUtil {
     fun collectContextLabelNames(context: PsiElement): List<String> {
         val labeledStatements = collectContextLabels(context)
 
-        val labels = mutableListOf<String>()
-        labeledStatements.forEach { statement ->
-            labels.add(statement.getIdentifier().text)
+        return labeledStatements.map { statement ->
+            statement.getIdentifier().text
         }
-        return labels
     }
 
     fun collectContextLabels(context: PsiElement): List<VlangLabelDefinition> {
